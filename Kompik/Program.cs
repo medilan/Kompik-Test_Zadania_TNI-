@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using OfficeOpenXml;
-
 class Program
 {
     static void Main()
@@ -24,10 +23,9 @@ class Program
             string osVersion = Environment.OSVersion.Version.ToString();
             string pcName = Environment.MachineName;
             string processorType = Environment.GetEnvironmentVariable("PROCESSOR_IDENTIFIER");
-            string ram = (Environment.WorkingSet / (1024)).ToString(); // Объем ОЗУ 
+            string ram = (Environment.WorkingSet / (1024*1024*8)).ToString(); // Объем ОЗУ 
             string screenResolution = $"{Console.WindowWidth}x{Console.WindowHeight}";
 
-          
             worksheet.Cells[2, 1].Value = osVersion;
             worksheet.Cells[2, 2].Value = pcName;
             worksheet.Cells[2, 3].Value = processorType;
